@@ -1,0 +1,26 @@
+<mat-grid-list cols="9" rowHeight="50px">
+  <mat-grid-tile>{{simulation.name}}</mat-grid-tile>
+  <mat-grid-tile>{{formatNumbers(simulation.populationSize)}}</mat-grid-tile>
+  <mat-grid-tile>{{formatNumbers(simulation.startInfectedCount)}}</mat-grid-tile>
+  <mat-grid-tile>{{formatNumbers(simulation.rratio)}}</mat-grid-tile>
+  <mat-grid-tile>{{formatNumbers(simulation.mratio)}}</mat-grid-tile>
+  <mat-grid-tile>{{formatNumbers(simulation.daysToRecovery)}}</mat-grid-tile>
+  <mat-grid-tile>{{formatNumbers(simulation.daysToDeath)}}</mat-grid-tile>
+  <mat-grid-tile>{{formatNumbers(simulation.simulationLength)}}</mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="{{simulation.id}}">
+        <mat-icon>visibility</mat-icon>
+        <span>Podgląd</span>
+      </button>
+      <button mat-menu-item (click)="deleteSimulationEvent.emit(simulation.id)">
+        <mat-icon>delete</mat-icon>
+        <span>Usuń</span>
+      </button>
+    </mat-menu>
+  </mat-grid-tile>
+</mat-grid-list>
+

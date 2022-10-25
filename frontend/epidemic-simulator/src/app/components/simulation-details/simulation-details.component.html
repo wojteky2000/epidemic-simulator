@@ -1,0 +1,38 @@
+<ng-container *ngIf="simulationDetails | async as simulation">
+  <div class="container-2">
+    <div>
+      <button mat-button (click)="goBack()">< Powrót</button>
+    </div>
+    <h1>{{simulation.name}}</h1>
+    <div>
+      <button mat-raised-button (click)="editSimulation(simulation)">Edytuj dane symulacji</button>
+    </div>
+  </div>
+  <div class="container-1">
+    <div class="list-container">
+      <mat-list>
+        <mat-list-item>
+          <mat-grid-list style="width: 100%" cols="5" rowHeight="50px">
+            <mat-grid-tile>dzień</mat-grid-tile>
+            <mat-grid-tile>Pi</mat-grid-tile>
+            <mat-grid-tile>Pv</mat-grid-tile>
+            <mat-grid-tile>Pm</mat-grid-tile>
+            <mat-grid-tile>Pr</mat-grid-tile>
+          </mat-grid-list>
+        </mat-list-item>
+        <mat-list-item *ngFor="let day of simulation.days; let i = index">
+          <mat-grid-list class="day-item" cols="5" rowHeight="50px">
+            <mat-grid-tile>{{i + 1}}</mat-grid-tile>
+            <mat-grid-tile>{{formatNumbers(day.infected)}}</mat-grid-tile>
+            <mat-grid-tile>{{formatNumbers(day.healthy)}}</mat-grid-tile>
+            <mat-grid-tile>{{formatNumbers(day.dead)}}</mat-grid-tile>
+            <mat-grid-tile>{{formatNumbers(day.recovered)}}</mat-grid-tile>
+          </mat-grid-list>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="charts-container">
+      <app-charts-controller [simulation]="simulation"></app-charts-controller>
+    </div>
+  </div>
+</ng-container>

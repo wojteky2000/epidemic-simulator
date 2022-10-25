@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="title">Symulacje rozwoju epidemii</h1>
+  <br/><br/>
+  <br/><br/>
+  <button mat-raised-button (click)="switchToCreatingMode()">Dodaj nową</button>
+  <br/><br/>
+  <div>
+    <mat-list class="simulation-list">
+      <mat-list-item>
+        <mat-grid-list style="width: 100%" cols="9" rowHeight="50px">
+          <mat-grid-tile>N</mat-grid-tile>
+          <mat-grid-tile>P</mat-grid-tile>
+          <mat-grid-tile>I</mat-grid-tile>
+          <mat-grid-tile>R</mat-grid-tile>
+          <mat-grid-tile>M</mat-grid-tile>
+          <mat-grid-tile>Ti</mat-grid-tile>
+          <mat-grid-tile>Tm</mat-grid-tile>
+          <mat-grid-tile>Ts</mat-grid-tile>
+        </mat-grid-list>
+      </mat-list-item>
+      <ng-container *ngFor="let simulation of simulations; let last = last;">
+        <mat-list-item *ngIf="!last" @simulationListAddElementAnimation @simulationListElementAnimation style="height: 54px">
+          <app-simulations-list-element style="width: 100%" [simulation]="simulation"
+                                        (deleteSimulationEvent)="deleteSimulation($event)"></app-simulations-list-element>
+        </mat-list-item>
+        <mat-list-item *ngIf="last" @simulationListAddElementAnimation @simulationListLastElementAnimation style="height: 54px">
+          <app-simulations-list-element style="width: 100%" [simulation]="simulation"
+                                        (deleteSimulationEvent)="deleteSimulation($event)"></app-simulations-list-element>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </div>
+</div>

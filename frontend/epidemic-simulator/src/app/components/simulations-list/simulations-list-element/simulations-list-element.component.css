@@ -1,0 +1,9 @@
+.mat-grid-tile{
+  text-align: center;
+  number-format: "### ###", "numbers"
+}
+
+.mat-grid-list{
+  width: 100%;
+  border: 1px solid #EAEAEA;
+}

@@ -1,0 +1,101 @@
+<div *ngIf="simulation">
+  <br/>
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="Rozwój epidemii">
+      <div style="display: flex; justify-content: center">
+        <div style="flex: 1 1 50%; max-width: 50%;">
+          <div style="min-height: 500px; max-height: 500px">
+            <br>
+            <ngx-charts-line-chart
+              [view]="[700,400]"
+              [results]="lineAllChartData"
+              [legend]="true"
+              [legendTitle]="'Legenda'"
+              [legendPosition]="legendPosition"
+              [showXAxisLabel]="true"
+              [showYAxisLabel]="true"
+              [xAxis]="true"
+              [yAxis]="true"
+              [xAxisLabel]="'Dzień'"
+              [yAxisLabel]="'Liczba ludzi'"
+              [timeline]="true"
+            >
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Liczba zachorowań w dniach">
+      <div style="display: flex; justify-content: center">
+        <div style="flex: 1 1 50%; max-width: 50%;">
+          <div style="min-height: 500px; max-height: 500px">
+            <br>
+            <ngx-charts-line-chart
+              [view]="[700,400]"
+              [results]="lineInfectionsChartData"
+              [legend]="true"
+              [legendTitle]="'Legenda'"
+              [legendPosition]="legendPosition"
+              [showXAxisLabel]="true"
+              [showYAxisLabel]="true"
+              [xAxis]="true"
+              [yAxis]="true"
+              [xAxisLabel]="'Dzień'"
+              [yAxisLabel]="'Liczba ludzi'"
+              [timeline]="true"
+            >
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Liczba zgonów w dniach">
+      <div style="display: flex; justify-content: center">
+        <div style="flex: 1 1 50%; max-width: 50%;">
+          <div style="min-height: 500px; max-height: 500px">
+            <br>
+            <ngx-charts-line-chart
+              [view]="[700,400]"
+              [results]="lineDeadChartData"
+              [legend]="true"
+              [legendTitle]="'Legenda'"
+              [legendPosition]="legendPosition"
+              [showXAxisLabel]="true"
+              [showYAxisLabel]="true"
+              [xAxis]="true"
+              [yAxis]="true"
+              [xAxisLabel]="'Dzień'"
+              [yAxisLabel]="'Liczba ludzi'"
+              [timeline]="true"
+            >
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Liczba wyzdrowień w dniach">
+      <div style="display: flex; justify-content: center">
+        <div style="flex: 1 1 50%; max-width: 50%;">
+          <div style="min-height: 500px; max-height: 500px">
+            <br>
+            <ngx-charts-line-chart
+              [view]="[700,400]"
+              [results]="lineRecoveredChartData"
+              [legend]="true"
+              [legendTitle]="'Legenda'"
+              [legendPosition]="legendPosition"
+              [showXAxisLabel]="true"
+              [showYAxisLabel]="true"
+              [xAxis]="true"
+              [yAxis]="true"
+              [xAxisLabel]="'Dzień'"
+              [yAxisLabel]="'Liczba ludzi'"
+              [timeline]="true"
+            >
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
